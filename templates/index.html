@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Compliment Generator</title>
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="heart">💖</div>
+<div class="heart heart2">💖</div>
+<div class="heart heart3">💖</div>
+<div class="heart heart4">💖</div>
+<div class="heart heart5">💖</div>
+<div class="heart heart6">💖</div>
+<div class="heart heart7">💖</div>
+<div class="heart heart8">💖</div>
+<div class="heart heart9">💖</div>
+<div class="heart heart10">💖</div>
+
+<div class= "phone">
+
+    <h1>Something you need to hear💖</h1>
+
+    <form method= "POST">
+        <input type= "text" name= "name" placeholder= "Enter your name" required>
+        <br><br>
+
+        <button type= "submit" onclick= "playSound()">
+                Get compliment
+            </button>
+        <br>
+    </form>
+
+    <script>
+        function playSound(){
+            new Audio("/static/chime.mp3").play();
+        }
+    </script>
+
+{% if compliment %}
+    <div class="compliment-box">
+        {{ name }}, {{ compliment }}
+
+    </div>
+{% endif %}
+
+
+    <button class="new-btn" onclick="location.reload()">
+        New Compliment
+    </button>
+
+   
+
+</div>
+
+</body>
+
+</html>
